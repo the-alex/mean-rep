@@ -15,8 +15,37 @@ Clayton's official ruling ...
 * Long Term
     - Find data which demonstrates Curse of Dimensionality.
 
+## Outline of Presentation
+1. High Dimensional Data
+    - What is it?
+    - Why is it good / bad?
+    - Curse of Dimensionality
+        + Increase computational speed
+        + Reduce memory overhead
+        + Difficult to sample
+    - Noisy features
+1. What is Dimensionality Reduction?
+    - A class of techniques which serve to transform the data into something less noisy.
+    - ... or a method of figuring out which dimensions to drop.
+1. Why is DR useful?
+    - Minimize curse of dimensionality
+    - Feature Selection
+    - Visualizing high dimensions
+1. Examples of DR
+    - Three methods to deal with this.
+    	- PCA
+    	- fastICA
+    	- MID
+1. Analysis and Performance
+    - PCA for feature selection on anonymized data
+    - ICA for signal decomposition
+    - MID for maximally informative features
+1. Extras (if we have time)
+    - t-SNE
+
+
 ## `/presentation/`
-This folder contains the presentation. We don't have to use remarkJS for the slides but I just think it'll make our lives easier. Maybe it won't and we'll switch to google slides. My only issue there is that it doesn't support latex.
+remarkJS will be used to create outline of presentation. I don't think we can use it- it's just too restrictive. It doesn't let me add all the visual aides I want without mucking about with CSS rules. That's dumb.
 
 #### To Present
 

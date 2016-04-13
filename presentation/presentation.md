@@ -5,21 +5,31 @@ class: center, middle
 ![Default-aligned image](http://scikit-learn.org/stable/_images/plot_digits_pipe_001.png)
 
 ---
+# Outline
 
-# Agenda
+### High Dimensional Data
+### What is Dimensionality Reduction?
+### Why is DR useful?
+### Examples of DR
+### Analysis and Performance
 
---
+---
+# High Dimensional Data
 
-1. Introduction
-    - Feature Selection
-    - Curse of Dimensionality
-2. Deep-dive
-    - Three methods to deal with this.
-3. ...
+- Hard to visualize.
+- Difficult to sample.
+- Computationally complex.
+- Difficult to estimate.
+
+![Multivariate Gaussian](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Gaussian_2d.svg/2000px-Gaussian_2d.svg.png)
+
 
 ---
 
-# Introduction
+# What is Dimensionality Reduction?
+
+- Dimensionality reduction refers to a class of techniques which map higher dimensional data to lower dimensional approximations.
+- The resulting representation is normally referred to as a _"low dimensional embedding"_
 
 ## Feature Selection
 
