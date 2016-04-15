@@ -61,10 +61,53 @@ class: center
 
 ---
 
+
 # PCA
 
-1. Do it.
-1. `return 0`
+- We want to find the unit vector `\(u\)` to project our data onto such that the resulting vector will retain the greatest variance.
+
+---
+
+# PCA
+
+## The PCA Algorithm
+
+* Pre-processing ...
+    - Normalize to zero mean 
+
+        - `\(\mu_{i} = \frac{1}{m} \sum_{i=1}^{m}{x^{(i)}}\)`
+
+        - set `\(x^{(i)}=x^{(i)} - \mu\)` to get means centered at 0 
+    
+    - Normalize the variance (if necessary) to unit variance. 
+
+        - `\(\sigma_{j}=\frac{1}{m} \sum_{i = 1}^{m}{\left(x_{j}^{i}\right)^2}\)`
+
+        - Set `\(x_{j}^{(i)} = \frac{{x_j}^{(i)}}{\sigma_j}\)`
+
+
+
+```matlab
+% Equivalent matlab code
+X=X-mean(X(:));
+X=X/std(X(:));
+```
+
+---
+
+# PCA
+
+Finding the principle Eigenvector
+
+Finding principle eigenvectors of the covariance matrix.
+  -There will always be a full set of eigenvectors because the covariance matrix is known to be symetric, therefore it cannot be defective.
+
+
+---
+
+# PCA
+
+## Implementation
 
 ```matlab
 function [retA, V] = pca_prime(A, k)
@@ -87,10 +130,20 @@ function [retA, V] = pca_prime(A, k)
     % return new data points with k dimensions
     retA = A*V(:,1:k);
 end
-
-
 ```
 
+---
+
+# ICA
+
+* There are N independent signals are mixed and sensed by N independent sensors. 
+* Separate the signals into their original components.
+* _The cocktail party problem._
+
+--
+* Signals must be non-Gaussian
+    - _why?_
+* 
 
 ---
 
