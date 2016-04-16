@@ -5,15 +5,6 @@ class: center, middle
 ![Default-aligned image](http://scikit-learn.org/stable/_images/plot_digits_pipe_001.png)
 
 ---
-# Outline
-
-### High Dimensional Data
-### DR in a nutshell
-### Why is DR useful?
-### Methods of DR
-### Analysis and Performance
-
----
 # High Dimensional Data
 Data with many features.
 - Stock data.
@@ -29,22 +20,25 @@ It is ...
 ![Multivariate Gaussian](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Gaussian_2d.svg/2000px-Gaussian_2d.svg.png)
 
 ---
-class: center 
+class: center
 
 # So how do we deal with high dimensional data?
 
 --
 
-# Create representation of the data with fewer dimensions. 
+# Create representation of the data with fewer dimensions.
 
 ---
 
 # DR in a nutshell 
 
-- Dimensionality reduction refers to a class of techniques which map higher dimensional data to lower dimensional approximations.
-- The resulting representation is normally referred to as a _"low dimensional embedding"_.
+- Refers to a class of techniques for creating __Low Dimensional Embeddings__.
 - The goal is to create an embedding which preserves the attributes of the data we want.
 - What we want to preserve from our old data in our new representation will depend on the application.
+
+???
+
+
 
 ---
 # Why is DR useful?
@@ -54,12 +48,12 @@ class: center
 - Encourage non-convex problems to converge more quickly and at more promising minima / maxima.
 - Visualizing high dimensional data while preserving some structure.
 - Compression
+
 ---
 # Methods
 - Principle Component Analysis
 - Maximally Informative Dimensions
 - Independent Component Analysis
-
 ---
 
 
@@ -67,7 +61,7 @@ class: center
 
 - We want to find the unit vector `\(u\)` to project our data onto such that the resulting vector will retain the greatest variance.
 
-- Math version... 
+- Math version...
 	- Choose `\(u\)`: <br> <br>
     `\(\max\limits_{u = \|u\| = 1}\frac{1}{m} \sum_{i=1}^{m} (x^{(i)T}u)^2\)` <br> <br>
 	`\(\rightarrow u^T \Big[\frac{1}{m}\sum_{i=1}^{m}x^{(i)}x^{(i)T}\Big]u \)`
@@ -147,14 +141,28 @@ end
 
 # ICA
 
-* An algorithm for separating a signal into it's component parts.
-* Assume there are as many sources as there are sensors.
+## Motivation
 * Cocktail Party Problem
 * EEG Data
 
 --
-* Signals must be non-Gaussian
-    - _why?_
+
+These two problems are analogous.
+* Estimate the source signals, given recordings of the received signals.
+* We assume there are as many source signals as there are microphones.
+
+???
+
+
+---
+
+# ICA Formulation
+
+* Take a matrix denoting source data `\(S \in \textbf{R}^{N \times M}\)`, where N denotes the number of speakers and M denotes the number of samples taken at some time interval. Individual sources are denoted `\(s_{j}^{(i)}\in \textbf{R}^M\)` for the signal emitted by source `\(j\)` sampled at time `\(i\)`.
+* We observe a matrix of the same dimensions `\(X\)`, which we use to represent our observed signals. Similarly, `\(x_{j}^{(i)}\in \textbf{R}^M\)` for the signal received by sensor `\(j\)` received at time `\(i\)`.
+
+We assume each signal in X can be represented as some linear combination of sources in S. Because we assume the data is being modified by a linear transformation, all we need to do is find an invertible matrix `\(W\)` in order to estimate the original sources.
+$$x^{(i)}=As^{(i)} \text{ and } s^{(i)}=Wx^{(i)} \text{ where } A=W^{-1}$$
 
 ---
 
