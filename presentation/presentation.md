@@ -73,6 +73,13 @@ class: center
 
 # PCA
 
+![PCA Principal Component](https://alliance.seas.upenn.edu/~cis520/dynamic/2014/wiki/uploads/Lectures/pca-example-1D-of-2D.png)
+---
+
+
+
+# PCA
+
 ## The PCA Algorithm
 
 * Pre-processing ...
