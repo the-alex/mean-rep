@@ -53,6 +53,7 @@ class: center
 - Create a concise representation.
 - Encourage non-convex problems to converge more quickly and at more promising minima / maxima.
 - Visualizing high dimensional data while preserving some structure.
+- Compression
 ---
 # Methods
 - Principle Component Analysis
@@ -65,6 +66,14 @@ class: center
 # PCA
 
 - We want to find the unit vector `\(u\)` to project our data onto such that the resulting vector will retain the greatest variance.
+
+- Math version... 
+	- Choose `\(u\)`: <br> <br>
+    `\(\max\limits_{u = \|u\| = 1}\frac{1}{m} \sum_{i=1}^{m} (x^{(i)T}u)^2\)` <br> <br>
+	`\(\rightarrow u^T \Big[\frac{1}{m}\sum_{i=1}^{m}x^{(i)}x^{(i)T}\Big]u \)`
+
+- `\([x^{(i)T}u]\)` represents the distance between a data point `\(x^{(i)}\)` and the unit vector `\(u\)`	
+	
 
 ---
 
@@ -86,7 +95,6 @@ class: center
         - Set `\(x_{j}^{(i)} = \frac{{x_j}^{(i)}}{\sigma_j}\)`
 
 
-
 ```matlab
 % Equivalent matlab code
 X=X-mean(X(:));
@@ -102,6 +110,9 @@ Finding the principle Eigenvector
 Finding principle eigenvectors of the covariance matrix.
   -There will always be a full set of eigenvectors because the covariance matrix is known to be symetric, therefore it cannot be defective.
 
+These principle eigenvectors represent the solutions to our original maximization problem.
+
+We arrange them in descending order based on their eigenvalues.
 
 ---
 
