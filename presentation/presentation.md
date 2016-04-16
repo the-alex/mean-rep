@@ -66,8 +66,8 @@ class: center
     `\(\max\limits_{u = \|u\| = 1}\frac{1}{m} \sum_{i=1}^{m} (x^{(i)T}u)^2\)` <br> <br>
 	`\(\rightarrow u^T \Big[\frac{1}{m}\sum_{i=1}^{m}x^{(i)}x^{(i)T}\Big]u \)`
 
-- `\([x^{(i)T}u]\)` represents the distance between a data point `\(x^{(i)}\)` and the unit vector `\(u\)`	
-	
+- A vector `\(x^{(i)}\)` projected onto `\(u\)` has length `\(x^{(i)T}u\)`	
+- We want the sum of squared distances of the projections to be far from the origin, or in other words,  we want the projections of `\(x^{(i)}\)` onto `\(u\)` to have large variance.	
 
 ---
 
