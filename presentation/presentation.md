@@ -136,14 +136,14 @@ end
 
 # ICA
 
-* There are N independent signals are mixed and sensed by N independent sensors. 
-* Separate the signals into their original components.
-* _The cocktail party problem._
+* An algorithm for separating a signal into it's component parts.
+* Assume there are as many sources as there are sensors.
+* Cocktail Party Problem
+* EEG Data
 
 --
 * Signals must be non-Gaussian
     - _why?_
-* 
 
 ---
 
