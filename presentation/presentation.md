@@ -19,6 +19,9 @@ It is ...
 
 ![Multivariate Gaussian](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Gaussian_2d.svg/2000px-Gaussian_2d.svg.png)
 
+???
+Exception to being hard to visualize is images.
+
 ---
 class: center
 
@@ -30,14 +33,12 @@ class: center
 
 ---
 
-# DR in a nutshell 
+# DR in a nutshell
+
 
 - Refers to a class of techniques for creating __Low Dimensional Embeddings__.
 - The goal is to create an embedding which preserves the attributes of the data we want.
 - What we want to preserve from our old data in our new representation will depend on the application.
-
-???
-
 
 
 ---
@@ -66,16 +67,27 @@ class: center
     `\(\max\limits_{u = \|u\| = 1}\frac{1}{m} \sum_{i=1}^{m} (x^{(i)T}u)^2\)` <br> <br>
 	`\(\rightarrow u^T \Big[\frac{1}{m}\sum_{i=1}^{m}x^{(i)}x^{(i)T}\Big]u \)`
 
-- A vector `\(x^{(i)}\)` projected onto `\(u\)` has length `\(x^{(i)T}u\)`	
-- We want the sum of squared distances of the projections to be far from the origin, or in other words,  we want the projections of `\(x^{(i)}\)` onto `\(u\)` to have large variance.	
+- A vector `\(x^{(i)}\)` projected onto `\(u\)` has length `\(x^{(i)T}u\)`
+- We want the sum of squared distances of the projections to be far from the origin, or in other words,  we want the projections of `\(x^{(i)}\)` onto `\(u\)` to have large variance.
 
 ---
 
-# PCA
+### PCA
+.center[![PCA_1](https://docs.google.com/drawings/d/1Hw2Xg5Oo8KLNzTJP1K7yM2m161LM_6D4JaEw4UyItbw/pub?w=480&h=360)]
+???
+Here, the principle eigenvector `\(u_1\)` is show with points in `\(X\)` being projected onto it.
+--
+.center[![PCA_2](https://docs.google.com/drawings/d/1L8TFAYixqkYkJW3spaopR3C6V0bp4PUd9dSMZBpMBgs/pub?w=1713&h=724)]
+???
+Here, we see the results of this projection,
+--
 
-![PCA Principal Component](https://alliance.seas.upenn.edu/~cis520/dynamic/2014/wiki/uploads/Lectures/pca-example-1D-of-2D.png)
+
+
+???
+.center[![PCA Principal Component](https://alliance.seas.upenn.edu/~cis520/dynamic/2014/wiki/uploads/Lectures/pca-example-1D-of-2D.png)]
+
 ---
-
 
 
 # PCA
@@ -83,13 +95,13 @@ class: center
 ## The PCA Algorithm
 
 * Pre-processing ...
-    - Normalize to zero mean 
+    - Normalize to zero mean
 
         - `\(\mu_{i} = \frac{1}{m} \sum_{i=1}^{m}{x^{(i)}}\)`
 
-        - set `\(x^{(i)}=x^{(i)} - \mu\)` to get means centered at 0 
-    
-    - Normalize the variance (if necessary) to unit variance. 
+        - set `\(x^{(i)}=x^{(i)} - \mu\)` to get means centered at 0
+
+    - Normalize the variance (if necessary) to unit variance.
 
         - `\(\sigma_{j}=\frac{1}{m} \sum_{i = 1}^{m}{\left(x_{j}^{i}\right)^2}\)`
 
@@ -126,19 +138,19 @@ function [retA, V] = pca_prime(A, k)
 
     % subtract mean from each column
     A = bsxfun(@minus, A, mean(A,1));
-    
+
     % generate covariance matrix
     C = cov(A);
-    
+
     % get eigen values/vectors
     [V D] = eig(C);
-    
+
     % sort eigen values
     [D order] = sort(diag(D), 'descend');
-    
+
     % sort columns based on eigenvalues
     V = V(:,order);
-    
+
     % return new data points with k dimensions
     retA = A*V(:,1:k);
 end
@@ -170,24 +182,3 @@ These two problems are analogous.
 
 We assume each signal in X can be represented as some linear combination of sources in S. Because we assume the data is being modified by a linear transformation, all we need to do is find an invertible matrix `\(W\)` in order to estimate the original sources.
 $$x^{(i)}=As^{(i)} \text{ and } s^{(i)}=Wx^{(i)} \text{ where } A=W^{-1}$$
-
----
-
-class: center, middle
-
-# `\(\LaTeX{}\)` in remark
-
----
-
-# Display and Inline
-
-1. This is an inline integral: `\(\int_a^bf(x)dx\)`
-2. More `\(x={a \over b}\)` formulae.
-
-Display formula:
-
-$$e^{i\pi} + 1 = 0$$
-
----
-class: center, middle
-# _FIN_
