@@ -1,0 +1,18 @@
+----- DR Use
+It can ... each of these
+
+maxima/minima explanation
+
+lossy compression / physically smaller / images
+
+
+----- PCA In a nutshell
+Rephrase in your own words -- I don't think I got it right the first time.
+
+"Maximizing objective function" - is that the right word?
+
+
+different scales - for example inches / centimeters measuring the same thing.
+
+------ Eigenfaces
+Finding* "Eigenfaces"
