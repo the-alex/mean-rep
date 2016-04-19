@@ -38,10 +38,26 @@ for all sources s^(i) \in S and x^(i) \in X ...
 
 The concrete goal of ICA is to approximate the matrix W. This is accomplished by defining a maximum likelihood estimation problem and performing stochasitc gradient descent on the likelihood function in search of an optimal matrix W. 
 
-We begin to form this problem by considering the probability density function p_s(s) for a random variable s \in R. Note, that in doing this we are implicitly asserting the independence of our sources s_i, which is clearly incorrect, however, it can be shown that with sufficiently corellated We then define the joint probability distribution from the marginal distribution over each source s_i.
+We begin to form this problem by considering the probability density function p_s(s) for a random variable s \in R. Note, that in doing this we are implicitly asserting the independence of our sources s_i, which is clearly incorrect for applications in time series data, however, it can be shown that with enough training examples correllated data will not hurt the performance of the algorithm. We then derive the joint probability distribution from the marginal distribution over each source s_i.
 
 \p(s) = \product_{i=1}^{n}p_s(s_i)
 
+After modeling our source densities, we can model our sensor (received signal densities) p(x). Given that we assume a linear transformation x^(i) = As^(i), and therefore can approximate an inverse W, such that s^(i)=Wx^(i), for any individual value s_j^{(i)} = w_j^{T}x^(i). This allows us to define our p_x(x) as equivalent to our p_s("some transformation of s") ...
+
+p_x(x) = p_s(Wx) * |W|
+
+... which allows us to specify the joint distribution of our sensors (received signals) as ...
+
+p(x) = \product_{i=1}^{n}{p_s (w_{i}^{T} x) \cdot |W|}
+
+It is sufficient to specify any non-gaussian cumulative density function (cdf) for the density of our sources p_s. This task is actually quite easy, as there are many distributions to choose from which are sufficiently non-Gaussian, for example, both Student-t and the Laplacian meet this requirement. Furthermore, one could choose any function which slowly increases monotonically from 0 (in the negative limit) to 1 (in the positive limit). For our implementation, we chose the sigmoid function.
+
+\sig
+\d/dx sig
+
+We then define the likelihood function for our MLE method. In practice, it is standard to take the log of the likelihood function.
+
+\ell (W) = \product_{i=1}
 
 
 Experimental Implementation: To test the basic capabilities of ICA for estimating the inverse of a mixing matrix W, we consider the two source / two sensor configuration. This simplifies our model slightly, as we will only need to retrieve one independent component to obtain the other.
