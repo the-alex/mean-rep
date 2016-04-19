@@ -38,7 +38,10 @@ for all sources s^(i) \in S and x^(i) \in X ...
 
 The concrete goal of ICA is to approximate the matrix W. This is accomplished by defining a maximum likelihood estimation problem and performing stochasitc gradient descent on the likelihood function in search of an optimal matrix W. 
 
-We begin to form this problem by considering the probability density function p_s(s) for a random variable s \in R ... Copy CS229-Lec12-ICA notes from here.
+We begin to form this problem by considering the probability density function p_s(s) for a random variable s \in R. Note, that in doing this we are implicitly asserting the independence of our sources s_i, which is clearly incorrect, however, it can be shown that with sufficiently corellated We then define the joint probability distribution from the marginal distribution over each source s_i.
+
+\p(s) = \product_{i=1}^{n}p_s(s_i)
+
 
 
 Experimental Implementation: To test the basic capabilities of ICA for estimating the inverse of a mixing matrix W, we consider the two source / two sensor configuration. This simplifies our model slightly, as we will only need to retrieve one independent component to obtain the other.
